@@ -1,0 +1,59 @@
+body {
+	background-color: #0FCBBA;
+	font-family: Arial;
+	text-align: center;
+}
+
+li {
+	display: inline;
+	padding: 10px;
+}
+
+ul {
+	margin: auto;
+	width: 500px;
+	padding-bottom: 50px;
+}
+
+table, td, tr {
+	border: 1px solid black;
+	margin: auto;
+	text-align: center;
+}
+td {
+	height: 50px;
+	padding: 5px;
+}
+
+.gallery {
+  width: 860px;
+  margin: 0 auto;
+}
+
+.gallery > div {
+  position: relative;
+  float: left;
+  padding: 5px;
+}
+
+.gallery > div > img {
+  display: block;
+  width: 200px;
+  height: 250px;
+}
+
+.gallery > div:hover {
+  z-index: 1;
+}
+
+.gallery > div:hover > img {
+  transform: scale(1.7,1.7);
+  transition: .3s transform;
+}
+
+h1 {
+  margin: 40px 0;
+  font-size: 30px;
+  font-weight: 300;
+  text-align: center;
+}
