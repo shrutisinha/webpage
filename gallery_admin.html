@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <title>Admin page</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+  <header>
+    <div class="wrapper">
+      <nav>
+        <ul>
+        	<li><a href="index.html#home">HOME</a></li>
+        	<li><a href="index.html#aboutme">ABOUT ME</a></li>
+        	<li><a href="index.html#contactme">CONTACT ME</a></li>
+        	<li><a href="index.html#gallery">GALLERY</a></li>
+          <li><a href="gallery_admin.html">GALLERY ADMIN</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div id="gallery">
+    <br><br><br><h1>Gallery Admin</h1><br>
+    <button id="add_image" type="button">Add Image</button>
+    <div class="gallery1" id="gallerypics1">
+      <!-- load pics from json -->
+    </div>
+
+    <!--modal to add image--> 
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">&times;</span>
+          <h2>Add New Image</h2>
+        </div>
+        <div class="modal-body">
+          <form id="add_form" action="" name="addForm">
+            <label for="name">Name:</label><br>
+            <input id="name" class="input" name="name" type="text" value="" size="30" /><br>
+            <label for="url">Image URL:</label><br>
+            <input id="url" class="input" name="url" type="text" value="" /><br>
+            <label for="info">Information:</label><br>
+            <textarea id="info" class="input" name="info" rows="4" value="" ></textarea><br>
+            <label for="update">Upload Date(dd/mm/yyyy):</label><br>
+            <input id="update" class="input" name="update" type="text" value="" /><br>
+            <button id="add_button" type="button">Add Image</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+
+    <!-- modal to update/remove -->
+    <div id="myModal1" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">&times;</span>
+          <h2>Edit/Remove Image</h2>
+        </div>
+        <div class="modal-body">
+          <form id="edit_form" action="" name="form3" autocomplete="off">
+            <label for="name1">Image-Name:</label><br>
+            <input id="name1" class="input" name="name1" type="text" value="" size="30" /><br>
+            <label for="url1">Image-URL:</label><br>
+            <input id="url1" class="input" name="url1" type="text" value="" /><br>
+            <label for="info1">Image-info:</label><br>
+            <input id="info1" class="input" name="info1" type="text" value=""></input><br>
+            <label for="update1">Upload-date(dd/mm/yyyy):</label><br>
+            <input id="update1" class="input" name="update1" type="text" value=""></input><br>
+              <!-- dynamic update and delete buttons for each image -->
+          </form>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/pictures.json" type = "text/javascript" ></script>
+  <script src = "js/gallery_admin_script.js" type = "text/javascript"></script>
+</body>

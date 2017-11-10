@@ -1,16 +1,77 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Home</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <title>Shruti's Webpage</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
+
 <body>
-    <ul>
-    	<li><a href="index.html">HOME</a></li>
-    	<li><a href="aboutme.html">ABOUT ME</a></li>
-    	<li><a href="contactme.html">CONTACT ME</a></li>
-    	<li><a href="gallery.html">GALLERY</a></li>
-    </ul>
-    <p>This page belongs to Shruti Sinha.</p>	
+  <header>
+    <div class="wrapper">
+      <nav>
+        <ul>
+        	<li><a href="#home">HOME</a></li>
+        	<li><a href="#aboutme">ABOUT ME</a></li>
+        	<li><a href="#contactme">CONTACT ME</a></li>
+        	<li><a href="#gallery">GALLERY</a></li>
+          <li><a href="gallery_admin.html">GALLERY ADMIN</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div id="mainContent">
+    <div id="home" >
+      <br><br><br><h1>Welcome!</h1><br>
+      <p>This page belongs to Shruti Sinha. Explore it to know more about me.</p>
+    </div>
+
+    <div id="aboutme">
+      <br><br><br><h1>About Me</h1> <br>
+      <p>
+        My name is Shruti Sinha.<br>
+        I did my B.Tech in Electrical Engineering from IIT Roorkee. I graduated in 2017.<br>
+        My hometown is Ranchi (Jharkhand).<br>
+        Currently, I am a Software Engineer at ZeMoSo Technologies Private Limited, Hyderabad.
+      </p>
+    </div>
+
+    <div id="contactme">
+      <br><br><br><h1>Contact</h1>
+      <h3>Please feel free to contact me</h3>
+      <div class="container">
+        <form name="contactForm" onsubmit="return validateForm()" method="POST" enctype="text/plain">
+
+          <label for="name">NAME:</label><br>
+          <input type="text" id="name" name="name" placeholder="Your name.." required /><br>
+
+          <label for="nmbr">MOBILE NUMBER:</label><br>
+          <input type="text" id="nmbr" name="number" placeholder="Your mobile number.."/><br>
+
+          <label for="email">EMAIL ID:</label><br>
+          <input type="email" id="email" name="email" placeholder="Your email.." required/><br>
+
+          <label for="message">MESSAGE:</label><br>
+          <textarea id="message" name="message" placeholder="Write your message.." rows="10" required></textarea><br><br>
+
+          <input type="submit" value="SUBMIT"/>
+
+        </form>
+      </div>
+    </div>
+
+    <div id="gallery">
+      <br><br><br><h1>Photography Gallery</h1> <br>
+      <div class="gallery" id="gallerypics">
+        <!-- load images from json -->
+      </div>   
+    </div>
+  </div>
+  
+  <script src="js/pictures.json" type = "text/javascript" ></script>
+  <script src = "js/webpage.js" type = "text/javascript"></script>
+  <script src = "js/formValidation.js" type = "text/javascript" ></script>
 </body>
 </html>			
