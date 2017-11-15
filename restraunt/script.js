@@ -21,7 +21,6 @@ function loadPage() {
 
     var divInfo = document.createElement('div');
     divInfo.id = 'T' + (i + 1);
-    console.log("divInfo.id(table): "+divInfo.id);
     divInfo.className = "info";
     //divInfo.addEventListener("drop",drop1);
     divInfo.innerText = "Rs. " + tables[i].amount + " | Total items: " + tables[i].itemNos;
@@ -32,7 +31,6 @@ function loadPage() {
   for (var i = 0; i < items.length; i++) {
     var div = document.createElement('div');
     div.id = items[i].id;
-    console.log("drag id (items)"+div.id);
     div.className = "items";
     div.innerText = items[i].name + " (Category: " + items[i].type + ")";
     div.setAttribute("draggable", true);
@@ -83,10 +81,7 @@ function drag(ev) {
 
 function drop(ev) {
   ev.preventDefault();
-  console.log("drop");
   var data = ev.dataTransfer.getData("text");
-  console.log("data(item id): " + data);
-  console.log("ev.target.id(table id): " + ev.target.id);
   for (var i = 0; i < items.length; i++) {
     if(items[i].id == data) {
       tables[ev.target.id].amount += items[i].cost;
@@ -94,10 +89,7 @@ function drop(ev) {
       break;
     }
   }
-  console.log("amount: "+tables[ev.target.id].amount);
-  console.log("itemNos: "+tables[ev.target.id].itemNos);
   tables[ev.target.id].itemIds.push(data);
-  console.log("itemIds: "+tables[ev.target.id].itemIds);
   document.getElementById('T' + (parseInt(ev.target.id) + 1)).innerText = "Rs. " + tables[ev.target.id].amount + " | Total items: " + tables[ev.target.id].itemNos;
 }
 
@@ -117,14 +109,10 @@ function showBill(table) {
   top.innerHTML = "Table-" + (parseInt(table.id) + 1) + " | Order Details";
 
   tables[table.id].itemIds.sort(sortNumber);
-  console.log("sorted item ids: "+tables[table.id].itemIds);
   var arr = tables[table.id].itemIds;
-  console.log("sorted or not");
-  console.log(arr);
   var prev;
   array = [];
   count = [];
-  console.log(arr);
   for ( var i = 0; i < arr.length; i++ ) {
     if ( arr[i] !== prev ) {
         array.push(arr[i]);
@@ -134,8 +122,6 @@ function showBill(table) {
     }
     prev = arr[i];
   }
-  console.log("array: "+ array);
-  console.log("count: "+count);
   setData(table.id);
 
   //close
@@ -161,7 +147,6 @@ function showBill(table) {
 }
 
 function setData(id) {
-  console.log(id + " is id");
   var tableData = document.getElementById("tableData");
   var c = "<tr style='font-weight:bold'><td>Item</td><td>Quantity</td><td>Total Price</td></tr>";
   for(var i = 0; i < array.length; i++){
@@ -188,8 +173,6 @@ function change(ev){
   if(input <= 0) {
     var check = confirm("Are you sure you want to remove "+item.name+" from bill?");
     if(!check) {
-      console.log("array: "+ array);
-      console.log("count: "+count);
       setData(id);
       return;
     }
@@ -209,12 +192,9 @@ function change(ev){
       tables[id].itemIds.push(array[itm]);
     }
   }
-  console.log("itemids: "+ tables[id].itemIds);
   document.getElementById('T' + (parseInt(id) + 1)).innerText = "Rs. " + tables[id].amount
     + " | Total items: "+ tables[id].itemNos;
 
-  console.log("array: "+ array);
-  console.log("count: "+count);
   setData(id);
 }
 
